@@ -20,6 +20,8 @@ pretraining_dataset:
 
 dataset_prepared_path:
 val_set_size: 0.0001
+eval_strategy:
+eval_steps: 0.1
 output_dir: ./outputs/out
 
 sequence_len: 8192
@@ -56,7 +58,7 @@ flash_attention: true
 
 
 warmup_steps: 100
-evals_per_epoch: 2
+
 eval_table_size:
 saves_per_epoch: 2
 eval_sample_packing: false
