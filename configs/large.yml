@@ -17,10 +17,15 @@ pretraining_dataset:
   - path: HuggingFaceFW/fineweb-2
     name: dan_Latn
     type: pretrain
+    weight: 0.995  # Use 99.5% for training
+  - path: HuggingFaceFW/fineweb-2
+    name: dan_Latn
+    type: eval
+    weight: 0.005  # Use 0.5% for evaluation
 
 dataset_prepared_path:
 val_set_size: 0.0001
-eval_strategy:
+eval_strategy: steps
 eval_steps: 0.1
 output_dir: ./outputs/out
 
@@ -84,6 +89,16 @@ fsdp_config:
   fsdp_state_dict_type: FULL_STATE_DICT
   fsdp_sharding_strategy: FULL_SHARD
   fsdp_backward_prefetch: BACKWARD_PRE
+  activation_checkpointing: true
 special_tokens:
   pad_token: <|endoftext|>
+
+# CodeCarbon configuration
+codecarbon:
+  project_name: "smol-dan-1.7b-training"
+  output_dir: "./outputs/emissions"
+  tracking_mode: "machine"
+  log_level: "error"
+  save_to_api: false
+  save_to_file: true
 
