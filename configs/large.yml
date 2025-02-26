@@ -17,15 +17,11 @@ pretraining_dataset:
   - path: HuggingFaceFW/fineweb-2
     name: dan_Latn
     type: pretrain
-    weight: 0.995  # Use 99.5% for training
-  - path: HuggingFaceFW/fineweb-2
-    name: dan_Latn
-    type: eval
-    weight: 0.005  # Use 0.5% for evaluation
+
 
 dataset_prepared_path:
 val_set_size: 0.0001
-eval_strategy: steps
+eval_strategy: 'no'
 eval_steps: 0.1
 output_dir: ./outputs/out
 
