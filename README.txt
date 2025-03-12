@@ -1,37 +1,8 @@
 # ft-da-smol
 Repo for fine-tuning af SmolLM2-1.7B
 
-# Installation & Usage
-
-Option 1 - Automated setup:
-1. Run the setup script:
-chmod +x setup.sh
-./setup.sh
-
-Option 2 - Manual setup:
-1. Install Axolotl:
-
-2. Requirements:
-- CUDA
-- Python 3.11
-- PyTorch >= 2.4.1
-
-3. Install dependencies:
-pip3 install --no-build-isolation axolotl[flash-attn,deepspeed]
-
-4. Get example configs:
-axolotl fetch examples
-axolotl fetch deepspeed_configs
-
-5. Start training:
-Option A - Using the training script:
-chmod +x train.sh
-./train.sh
-
-Option B - Manual command:
+Manual training:
 axolotl train configs/large.yml
-
-Note: Make sure to check the configs/large.yml file for the correct model path and training parameters before starting.
 
 Environment variables for logging:
 - WANDB_MODE: Set to "online" to enable Weights & Biases logging (default: "disabled")
@@ -49,5 +20,5 @@ Local logging:
 - Training state and checkpoints are saved in the output directory specified in your config
 - If CodeCarbon is enabled, emissions data is saved to logs/emissions_<timestamp>.csv
 
-For troubleshooting and advanced options, see:
+For troubleshooting and advanced options:
 https://github.com/axolotl-ai-cloud/axolotl
